@@ -5,17 +5,26 @@
 }
 
 :root {
-  --card-title-border-color: #746615;
-  --card-color-primary: #F7DD43;
-  --card-bg-color: #1D1C19;
-  --bg: url(./assets/bg-yellow.svg);
-}
-
-body.blue {
   --card-title-border-color: #338AF3;
   --card-color-primary: #338AF3;
   --card-bg-color: #202024;
   --bg: url(./assets/bg-blue.svg);
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+body.default {
+  --card-title-border-color: #338AF3;
+  --card-color-primary: #338AF3;
+  --card-bg-color: #202024;
+  --bg: url(./assets/bg-blue.svg);
+}
+
+body.yellow {
+  --card-title-border-color: #746615;
+  --card-color-primary: #F7DD43;
+  --card-bg-color: #1D1C19;
+  --bg: url(./assets/bg-yellow.svg);
 }
 
 body.green {
@@ -34,6 +43,9 @@ body {
   
   user-select: none;
   -webkit-user-select: none;
+
+  position: relative;
+  transition: all .3s;
 }
 
 ul {
@@ -68,6 +80,8 @@ header {
   background: var(--card-bg-color);
   border-bottom: 2px solid var(--card-color-primary);
   border-radius: 6px;
+
+  transition: all .3s;
 }
 
 .card h2 {
@@ -151,11 +165,84 @@ header {
   }
 }
 
+/* ============== themes btn ==================== */
+
+.themes {
+  width: 80px;
+  height: 20px;
+
+  position: absolute;
+  top: 30px;
+  left: 20px;
+}
+
+.themes ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+.themes ul li {
+  list-style: none;
+  width: 20px;
+  height: 20px;
+
+  cursor: pointer;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 11px 15px 29px -15px rgba(0,0,2,0.65);
+}
+
+.themes ul li:nth-child(1) {
+  background: #F7DD43;
+}
+
+.themes ul li:nth-child(2) {
+  background: #338AF3;
+}
+
+.themes ul li:nth-child(3) {
+  background: #047C3F;
+}
+
+.themes ul li.active {
+  border: 1px solid #ffffff;
+}
+
 /* ============== responsividade ============== */
 @media (min-width: 768px) {
   #cards {
     flex-direction: row;
     max-width: 670px;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 425px) {
+  .themes {
+    left: initial;
+    right: 15px;
+
+    width: fit-content;
+    height: fit-content;
+  }
+
+  .themes ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .themes ul li {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+@media (max-width: 350px) {
+  .card {
+    padding: 16px 11px;
+  }
+
+  .card ul {
+    width: initial;
   }
 }

@@ -1,3 +1,8 @@
+const body = document.querySelector('body')
+const btnBgColorYellow = document.querySelector('.themes ul li:nth-child(1)')
+const btnBgColorDefault = document.querySelector('.themes ul li:nth-child(2)')
+const btnBgColorGreen = document.querySelector(".themes ul li:nth-child(3)")
+
 function createGame(team1, hour, team2) {
   return `
     <li>
@@ -38,3 +43,30 @@ document.querySelector("#cards").innerHTML =
     "sexta", 
     createGame("cameroon", "16:00", "brazil"))
 
+
+btnBgColorDefault.addEventListener('click', () => {
+  body.className = ''
+  body.classList.add('default')
+
+  btnBgColorYellow.className = ""
+  btnBgColorGreen.className = ""
+  btnBgColorDefault.classList.add('active')
+})
+
+btnBgColorYellow.addEventListener("click", () => {
+  body.className = ""
+  body.classList.add("yellow")
+
+  btnBgColorDefault.className = ""
+  btnBgColorGreen.className = ""
+  btnBgColorYellow.classList.add("active")
+})
+
+btnBgColorGreen.addEventListener("click", () => {
+  body.className = ''
+  body.classList.add("green")
+
+  btnBgColorYellow.className = ""
+  btnBgColorDefault.className = ""
+  btnBgColorGreen.classList.add("active")
+})
