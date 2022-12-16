@@ -43,6 +43,10 @@ document.querySelector("#cards").innerHTML =
     "sexta", 
     createGame("cameroon", "16:00", "brazil"))
 
+//=================================================
+window.addEventListener('load', () => {
+  btnBgColorDefault.classList.add('active')
+})
 
 btnBgColorDefault.addEventListener('click', () => {
   body.className = ''

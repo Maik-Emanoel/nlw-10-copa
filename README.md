@@ -33,6 +33,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ## 💻 Projeto
 
 Este projeto é um calendário da Copa do Mundo 2022 com as datas e horários do jogos do Brasil.
+Ps: Adicionei botões que possibilitam a troca de tema do site.
 
 ## 🔖 Layout
 
