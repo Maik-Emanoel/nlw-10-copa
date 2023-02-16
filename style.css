@@ -205,7 +205,7 @@ header {
 }
 
 .themes ul li.active {
-  border: 1px solid #ffffff;
+  border: 2px solid #ffffff;
 }
 
 /* ============== responsividade ============== */
