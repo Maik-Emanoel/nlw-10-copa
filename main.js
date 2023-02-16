@@ -1,7 +1,5 @@
 const body = document.querySelector('body')
-const btnBgColorYellow = document.querySelector('.themes ul li:nth-child(1)')
-const btnBgColorDefault = document.querySelector('.themes ul li:nth-child(2)')
-const btnBgColorGreen = document.querySelector(".themes ul li:nth-child(3)")
+const themes = document.querySelectorAll('.themes ul li')
 
 function createGame(team1, hour, team2) {
   return `
@@ -44,33 +42,30 @@ document.querySelector("#cards").innerHTML =
     createGame("cameroon", "16:00", "brazil"))
 
 //=================================================
-window.addEventListener('load', () => {
-  btnBgColorDefault.classList.add('active')
-})
+for (const theme of themes) {
+  theme.addEventListener('click', (e) => {
+    body.className = ""
 
-btnBgColorDefault.addEventListener('click', () => {
-  body.className = ''
-  body.classList.add('default')
-
-  btnBgColorYellow.className = ""
-  btnBgColorGreen.className = ""
-  btnBgColorDefault.classList.add('active')
-})
-
-btnBgColorYellow.addEventListener("click", () => {
-  body.className = ""
-  body.classList.add("yellow")
-
-  btnBgColorDefault.className = ""
-  btnBgColorGreen.className = ""
-  btnBgColorYellow.classList.add("active")
-})
-
-btnBgColorGreen.addEventListener("click", () => {
-  body.className = ''
-  body.classList.add("green")
-
-  btnBgColorYellow.className = ""
-  btnBgColorDefault.className = ""
-  btnBgColorGreen.classList.add("active")
-})
+    if(e.target == themes[0]) {
+      theme.classList.add('active')
+      body.classList.add('yellow')
+    } else {
+      themes[0].className = ""
+      body.classList.remove("yellow")
+    }
+    if (e.target == themes[1]) {
+      theme.classList.add("active")
+      body.classList.add("default")
+    } else {
+      themes[1].className = ""
+      body.classList.remove("default")
+    }
+    if (e.target == themes[2]) {
+      theme.classList.add("active")
+      body.classList.add("green")
+    } else {
+      themes[2].className = ""
+      body.classList.remove("green")
+    }
+  })
+}
