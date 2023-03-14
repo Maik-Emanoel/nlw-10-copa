@@ -41,31 +41,16 @@ document.querySelector("#cards").innerHTML =
     "sexta", 
     createGame("cameroon", "16:00", "brazil"))
 
-//=================================================
-for (const theme of themes) {
-  theme.addEventListener('click', (e) => {
-    body.className = ""
+let themeActived = document.querySelector('.active')
+const themeClasses = ['yellow', 'default', 'green']
 
-    if(e.target == themes[0]) {
-      theme.classList.add('active')
-      body.classList.add('yellow')
-    } else {
-      themes[0].className = ""
-      body.classList.remove("yellow")
-    }
-    if (e.target == themes[1]) {
-      theme.classList.add("active")
-      body.classList.add("default")
-    } else {
-      themes[1].className = ""
-      body.classList.remove("default")
-    }
-    if (e.target == themes[2]) {
-      theme.classList.add("active")
-      body.classList.add("green")
-    } else {
-      themes[2].className = ""
-      body.classList.remove("green")
-    }
+themes.forEach((theme, i) => {
+  theme.addEventListener('click', () => {
+    themeActived.classList.remove('active')
+    theme.classList.add('active')
+    themeActived = theme
+    body.className = ''
+
+    body.classList.add(themeClasses[i])
   })
-}
+})
